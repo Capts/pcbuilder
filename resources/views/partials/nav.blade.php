@@ -1,4 +1,6 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top skin-blue">
+{{-- <nav class="navbar-custom-menu"> --}}
+
     <div class="container">
         <div class="navbar-header">
 
@@ -11,9 +13,19 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }} <small>| tim yung logo |</small>
-            </a>
+            @guest
+
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }} <small>| tim yung logo |</small>
+                </a>
+
+            @else
+
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    {{ config('app.name', 'Laravel') }} <small>| tim yung logo |</small>
+                </a>
+
+            @endguest
         </div>
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -26,8 +38,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @guest
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
+                   {{--  <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="{{ route('register') }}">Register</a></li> --}}
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

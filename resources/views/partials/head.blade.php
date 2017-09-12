@@ -9,4 +9,7 @@
 
 <!-- your styles here -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('plugins/iCheck/square/blue.css') }}" rel="stylesheet">
+<link href="{{ asset('dist/css/AdminLTE.min.css') }}" rel="stylesheet">
+<link href="{{ asset('dist/css/skins/_all-skins.min.css') }}" rel="stylesheet">
 
