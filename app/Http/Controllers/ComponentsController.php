@@ -43,6 +43,21 @@ class ComponentsController extends Controller
         Session::flash('success', 'Component added!');
         return redirect()->route('component.show', $component->id);
 
+        // public function upload_image(Request $request, $id){
+        //     if ($request->hasFile('avatar')) {
+        //         $avatar = $request->file('avatar');
+
+        //         $filename = time() . "." . $avatar->getClientOriginalExtension();
+        //         Image::make($avatar)->resize(300, 305)->save( public_path('/upload/avatars/' . $filename));
+
+        //         $user = auth()->user();
+        //         $user->avatar =$filename;
+        //         $user->save();
+
+        //     }
+        //     return redirect()->route('dashboard');
+        // }
+
     }
 
     
