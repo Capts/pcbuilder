@@ -3,25 +3,63 @@
 <head>
     @include('partials.head')
 </head>
-<body>
-    <div id="app">
-       @include('partials.nav')
+@guest
+  <body style="background-color:#B0BEC5;">
 
-        @yield('content')
-    </div>
+      <div id="app">
+          @include('partials.nav')
+          @include('partials.header')
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('plugins/iCheck/icheck.min.js') }}"></script>
+          @yield('content')
+        
+          @include('partials.footer')
+      </div>
+      <!-- Scripts -->
+      <script src="{{ asset('js/app.js') }}"></script>
+      <script src="{{ asset('js/adminlte.min.js') }}"></script>
+      <script src="{{ asset('plugins/iCheck/icheck.min.js') }}"></script>
 
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
-</script>
-</body>
+  </body>
+@else
+
+  @if (auth()->user()->roles->first()->name == 'admin')
+    <body class="hold-transition skin-red  sidebar-mini">
+      @include('components.modals.add_component_modal')
+      
+      <div id="app">
+
+          @yield('content')
+        
+        @include('partials.footer')
+      </div>
+      <!-- Scripts -->
+      <script src="{{ asset('js/app.js') }}"></script>
+      <script src="{{ asset('js/adminlte.min.js') }}"></script>
+      <script src="{{ asset('plugins/iCheck/icheck.min.js') }}"></script>
+  </body>
+  @else
+    <body style="background-color:#B0BEC5;">
+
+        <div id="app">
+            @include('partials.nav')
+            @include('partials.header')
+
+            @yield('content')
+          
+            @include('partials.footer')
+        </div>
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/adminlte.min.js') }}"></script>
+        <script src="{{ asset('plugins/iCheck/icheck.min.js') }}"></script>
+
+    </body>
+
+  @endif
+@endguest
+
 </html>
+
+
+
+  

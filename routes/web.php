@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@dashboard')->name('dash');
+Route::get('/components/all-components', 'ComponentsController@index')->name('component.index');
+Route::resource('/component', 'ComponentsController', ['except' => ['index']]);

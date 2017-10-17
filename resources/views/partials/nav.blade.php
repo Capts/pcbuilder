@@ -1,33 +1,28 @@
-<nav class="navbar navbar-default navbar-static-top skin-blue">
+<nav class="navbar navbar-default navbar-static-top top_nav_height" style="background-color: #FF7043;margin-bottom: 0px;"> <!-- #FF7043 -->
 {{-- <nav class="navbar-custom-menu"> --}}
 
     <div class="container">
         <div class="navbar-header">
 
+
+
             <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+           {{--  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-            </button>
+            </button> --}}
+            
 
-            <!-- Branding Image -->
-            @guest
-
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }} <small>| tim yung logo |</small>
-                </a>
-
-            @else
-
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name', 'Laravel') }} <small>| tim yung logo |</small>
-                </a>
-
-            @endguest
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <span style="color:white">LOGO HERE</span>
+                {{-- <a href="#" ><img src="img/logo.png" width="200px" height="60px" alt="" style="padding-top: 5px;"></a> --}}
+            </a>
+          
         </div>
 
+        {{-- <div class="collapse navbar-collapse" id="app-navbar-collapse"> --}}
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
@@ -36,31 +31,7 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
-                @guest
-                   {{--  <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li> --}}
-                @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                @endguest
+               
             </ul>
         </div>
     </div>
