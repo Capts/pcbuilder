@@ -7,6 +7,7 @@
 <div class="wrapper">
 	@include('admins.admin-nav')
 	@include('partials.sidebar')
+	@include('components.modals.add_component_modal')
 	<div class="content-wrapper">
 
 		<!-- Content Header (Page header) -->

@@ -4,10 +4,10 @@
     @include('partials.head')
 </head>
 @guest
-  <body style="background-color:#B0BEC5;">
+  <body style="background-color:#B0BEC5;font-family: 'Changa', sans-serif;">
 
       <div id="app">
-          @include('partials.nav')
+          {{-- @include('partials.nav') --}}
           @include('partials.header')
 
           @yield('content')
@@ -23,8 +23,8 @@
 @else
 
   @if (auth()->user()->roles->first()->name == 'admin')
-    <body class="hold-transition skin-red  sidebar-mini">
-      @include('components.modals.add_component_modal')
+    <body class="hold-transition skin-red  sidebar-mini" style="font-family: 'Changa', sans-serif;">
+      
       
       <div id="app">
 
@@ -38,10 +38,10 @@
       <script src="{{ asset('plugins/iCheck/icheck.min.js') }}"></script>
   </body>
   @else
-    <body style="background-color:#B0BEC5;">
+    <body style="background-color:#B0BEC5;font-family: 'Changa', sans-serif;">
 
         <div id="app">
-            @include('partials.nav')
+            {{-- @include('partials.nav') --}}
             @include('partials.header')
 
             @yield('content')

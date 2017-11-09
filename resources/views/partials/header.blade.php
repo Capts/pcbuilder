@@ -1,4 +1,4 @@
-<section class="navbar navbar-inverse" style="margin-top: 0px;">
+<section class="navbar navbar-inverse" style="margin-top: 0px;font-size: 18px;" id="resizenavitems">
 	
 	<div class="container">
 		<div class="navbar-header">
@@ -17,9 +17,18 @@
 
 		<div class="collapse navbar-collapse" id="burger">
 
-			<ul class="nav navbar-nav ">
+			<ul class="nav navbar-nav " style="margin-top: 15px;">
+				<li>
+					
+					<a href="{{ url('/') }}" style="color:#e28726">
+					{{-- <img src="img/logo.png" width="50px" height="40px" alt=""> --}}
+				    <span style="font-family: 'Luckiest Guy', cursive;font-size: 45px;">PC</span>
+				    <span style="font-family: 'Luckiest Guy', cursive;font-size: 25px;">BUILDER </span>
+				    {{-- <span style="font-size: 40px;">|</span> --}}
+				</a>
+				</li>
 				@guest
-					<li><a href="#">System Build</a></li>
+					{{-- <li><a href="#">System Build</a></li> --}}
 					<li><a href="#">Build Guides</a></li>
 					<li><a href="#">Complete Builds</a></li>
 					<li><a href="#">Components</a></li>
@@ -45,13 +54,13 @@
 			</ul>
 
 
-			<ul class="nav navbar-nav navbar-right " style="background-color: transparent;">
+			<ul class="nav navbar-nav navbar-right " style="background-color: transparent;margin-top: 15px;">
 			    <!-- Authentication Links -->
 			    @guest
 			    	
 		    	      {{-- <ul class="nav navbar-nav navbar-right" > --}}
-		    	        <li class="dropdown">
-		    	          <a href="#" class="dropdown-toggle navtxt" data-toggle="dropdown">Register {{-- <span class="caret"></span> --}}</a>
+		    	        {{-- <li class="dropdown">
+		    	          <a href="#" class="dropdown-toggle navtxt" data-toggle="dropdown">Register </a>
 		    	          <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu" style="background-color: white;width: 290px;">
 		    	            <div class="col-lg-12">
 		    	              <div class="text-center">
@@ -60,9 +69,9 @@
 		    	              @include('auth.register_modified')
 		    	            </div>
 		    	          </ul>
-		    	        </li>
+		    	        </li> --}}
 		    	        <li class="dropdown">
-		    	          <a href="#" class="dropdown-toggle navtxt" data-toggle="dropdown">Log In {{-- <span class="caret"></span> --}}</a>
+		    	          <a href="#" class="dropdown-toggle navtxt btn-flat bg-olive" data-toggle="dropdown">Log In {{-- <span class="caret"></span> --}}</a>
 		    	          <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu" style="background-color: white;width:300px;">
 		    	            <div class="col-lg-12">
 		    	              <div class="text-center">

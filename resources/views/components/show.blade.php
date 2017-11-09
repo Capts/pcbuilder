@@ -5,7 +5,6 @@
 @section('content')
 
 @include('components.modals.edit_component_modal')
-
 <div class="wrapper">
 	@include('admins.admin-nav')
 	@include('partials.sidebar')

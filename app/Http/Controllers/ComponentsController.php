@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Component;
-use Session;
 use Illuminate\Http\Request;
+use DB;
+use Session;
 
 class ComponentsController extends Controller
 {
     
     public function index()
     {
-        return view('components.index');
+        $component_type = DB::table('component_types')->get();
+
+        return view('components.index', ['component_type' => $component_type]);
     }
 
 
@@ -25,6 +28,7 @@ class ComponentsController extends Controller
     {
         // dd($request);
         $request->validate([
+            'component_type' => 'required',
             'component_name' => 'required|max:60|min:8',
             'component_desc' => 'required|max:200|min:8',
             'component_price' => 'required',
@@ -33,6 +37,7 @@ class ComponentsController extends Controller
 
         $component = new Component();
 
+        $component->component_type = $request->component_type;
         $component->component_name = $request->component_name;
         $component->component_desc = $request->component_desc;
         $component->component_price = $request->component_price;
@@ -80,6 +85,7 @@ class ComponentsController extends Controller
     {
         
         $request->validate([
+            'component_type' => 'required',
             'component_name' => 'required|max:60|min:8',
             'component_desc' => 'required|max:200|min:20',
             'component_price' => 'required',
@@ -87,6 +93,7 @@ class ComponentsController extends Controller
         ]);
         $put_components = Component::find($id);
 
+        $put_components->component_type = $request->input('component_type');
         $put_components->component_name = $request->input('component_name');
         $put_components->component_desc = $request->input('component_desc');
         $put_components->component_price = $request->input('component_price');

@@ -20,3 +20,6 @@
 <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
 <link href="{{ asset('plugins/iCheck/square/blue.css') }}" rel="stylesheet">
 
+
+<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet">
