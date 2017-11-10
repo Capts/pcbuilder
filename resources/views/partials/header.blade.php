@@ -71,11 +71,11 @@
 		    	          </ul>
 		    	        </li> --}}
 		    	        <li class="dropdown">
-		    	          <a href="#" class="dropdown-toggle navtxt btn-flat bg-olive" data-toggle="dropdown">Log In {{-- <span class="caret"></span> --}}</a>
+		    	          <a href="#" class="dropdown-toggle navtxt btn-flat bg-red" data-toggle="dropdown">Sign in {{-- <span class="caret"></span> --}}</a>
 		    	          <ul class="dropdown-menu dropdown-lr animated flipInX" role="menu" style="background-color: white;width:300px;">
 		    	            <div class="col-lg-12">
 		    	              <div class="text-center">
-		    	                <h3><b>Log In</b></h3></div>
+		    	                <h3><b>Sign in</b></h3></div>
 		    	            
 		    	              @include('auth.login_modified')
 		    	            </div>
