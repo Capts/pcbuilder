@@ -24,3 +24,6 @@ Route::resource('/component', 'ComponentsController', ['except' => ['index']]);
 
 //manual route
 Route::get('/build-my-pc-manually', 'ManualController@index')->name('manual.index');
+
+//system builds
+Route::resource('system-build', 'SystemBuildController');

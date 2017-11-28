@@ -28,9 +28,9 @@
 				</a>
 				</li>
 				@guest
-					{{-- <li><a href="#">System Build</a></li> --}}
+					<li><a href="{{ route('system-build.index') }}">System Build</a></li>
 					<li><a href="#">Build Guides</a></li>
-					<li><a href="#">Complete Builds</a></li>
+					{{-- <li><a href="#">Complete Builds</a></li> --}}
 					<li><a href="#">Components</a></li>
 
 				@else
@@ -39,9 +39,9 @@
 						<li><a href="{{ route('dash') }}">Dashboard</a></li>
 
 					@elseif(auth()->user()->roles()->first()->name == 'client')
-						<li><a href="#">System Build</a></li>
+						<li><a href="{{ route('system-build.index') }}">System Build</a></li>
 						<li><a href="#">Build Guides</a></li>
-						<li><a href="#">Complete Builds</a></li>
+						{{-- <li><a href="#">Complete Builds</a></li> --}}
 						<li><a href="#">Components</a></li>
 
 						
