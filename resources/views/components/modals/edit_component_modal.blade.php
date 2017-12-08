@@ -11,6 +11,14 @@
 		{!! Form::model($com, ['route' => ['component.update', $com->id], 'method' => 'PUT']) !!}
 		
 		    <div class="col-md-4">
+                <div class="form-group{{ $errors->has('component_type') ? ' has-error' : '' }}">
+                  {!! Form::label('component_type', 'Component type') !!} <br>  
+                    <span class="label label-primary">
+                      {{ ucfirst($com->component_type) }}
+                     
+                    </span>
+                </div>
+
                 <div class="form-group{{ $errors->has('component_name') ? ' has-error' : '' }}">
                     {!! Form::label('component_name', 'Component name') !!}
                     {!! Form::text('component_name', null, ['class' => 'form-control', 'required' => 'required']) !!}
@@ -31,11 +39,19 @@
 
               </div>
 
+
               <div class="col-md-8">
+
                   <div class="form-group{{ $errors->has('component_desc') ? ' has-error' : '' }}">
                       {!! Form::label('component_desc', 'Description') !!}
                       {!! Form::textarea('component_desc', null, ['class' => 'field' ,'required' => 'required', 'style' => 'resize:none;']) !!}
                       <small class="text-danger">{{ $errors->first('component_desc') }}</small>
+                  </div>
+                  <div class="form-group{{ $errors->has('featured_image') ? ' has-error' : '' }}">
+                      {!! Form::label('featured_image', 'Image') !!}
+                      {!! Form::file('featured_image', ['class' => 'form-control']) !!}
+                      {{-- <p class="help-block"><i class="fa fa-question"></i></p> --}}
+                      <small class="text-danger">{{ $errors->first('featured_image') }}</small>
                   </div>
               </div>
               <div class="col-md-12">

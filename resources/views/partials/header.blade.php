@@ -23,7 +23,7 @@
 					<a href="{{ url('/') }}" style="color:#e28726">
 					{{-- <img src="img/logo.png" width="50px" height="40px" alt=""> --}}
 				    <span style="font-family: 'Luckiest Guy', cursive;font-size: 45px;">PC</span>
-				    <span style="font-family: 'Luckiest Guy', cursive;font-size: 25px;">BUILDER </span>
+				    <span style="font-family: 'Luckiest Guy', cursive;font-size: 25px;">MOD </span>
 				    {{-- <span style="font-size: 40px;">|</span> --}}
 				</a>
 				</li>

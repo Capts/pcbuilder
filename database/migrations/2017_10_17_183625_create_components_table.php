@@ -17,7 +17,7 @@ class CreateComponentsTable extends Migration
             $table->increments('id');
             $table->string('component_type');
             $table->string('component_name');
-            $table->string('component_desc');
+            $table->text('component_desc');
             $table->string('component_price');
             $table->string('component_qty');
             $table->string('component_image')->nullable();
