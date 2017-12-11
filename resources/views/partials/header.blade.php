@@ -19,16 +19,28 @@
 
 			<ul class="nav navbar-nav " style="margin-top: 15px;">
 				<li>
-					
-					<a href="{{ url('/') }}" style="color:#e28726">
-					{{-- <img src="img/logo.png" width="50px" height="40px" alt=""> --}}
-				    <span style="font-family: 'Luckiest Guy', cursive;font-size: 45px;">PC</span>
-				    <span style="font-family: 'Luckiest Guy', cursive;font-size: 25px;">MOD </span>
-				    {{-- <span style="font-size: 40px;">|</span> --}}
-				</a>
+					@guest
+							<a href="{{ url('/') }}" style="color:#e28726">
+						    <span style="font-family: 'Luckiest Guy', cursive;font-size: 45px;">PC</span>
+						    <span style="font-family: 'Luckiest Guy', cursive;font-size: 25px;">MOD </span>
+						    </a>
+					@else
+						@if (auth()->user()->roles()->first()->name == 'admin')
+								<a href="{{ url('/dashboard') }}" style="color:#e28726">
+							    <span style="font-family: 'Luckiest Guy', cursive;font-size: 45px;">PC</span>
+							    <span style="font-family: 'Luckiest Guy', cursive;font-size: 25px;">MOD </span>
+							    </a>
+						@else
+								<a href="{{ url('/home') }}" style="color:#e28726">
+							    <span style="font-family: 'Luckiest Guy', cursive;font-size: 45px;">PC</span>
+							    <span style="font-family: 'Luckiest Guy', cursive;font-size: 25px;">MOD </span>
+							    </a>
+						@endif
+					@endguest
+			
 				</li>
 				@guest
-					<li><a href="{{ route('system-build.index') }}">System Build</a></li>
+					{{-- <li><a href="{{ route('system-build.index') }}">System Build</a></li> --}}
 					<li><a href="#">Build Guides</a></li>
 					{{-- <li><a href="#">Complete Builds</a></li> --}}
 					<li><a href="#">Components</a></li>
@@ -39,7 +51,7 @@
 						<li><a href="{{ route('dash') }}">Dashboard</a></li>
 
 					@elseif(auth()->user()->roles()->first()->name == 'client')
-						<li><a href="{{ route('system-build.index') }}">System Build</a></li>
+						{{-- <li><a href="{{ route('system-build.index') }}">System Build</a></li> --}}
 						<li><a href="#">Build Guides</a></li>
 						{{-- <li><a href="#">Complete Builds</a></li> --}}
 						<li><a href="#">Components</a></li>

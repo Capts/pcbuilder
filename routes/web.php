@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/', 'WelcomeController@welcome');
+Route::get('/find', 'WelcomeController@findComponent')->name('find');
 
 Auth::routes();
 

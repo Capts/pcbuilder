@@ -15,7 +15,7 @@ class ComponentsController extends Controller
     public function index()
     {
         $component_type = DB::table('component_types')->get();
-        $allComponents = Component::orderBy('created_at', 'desc')->get();
+        $allComponents = Component::orderBy('created_at', 'asc')->paginate(12);
         // dd($allComponents);
 
         return view('components.index', ['component_type' => $component_type],compact('allComponents'));
@@ -50,7 +50,7 @@ class ComponentsController extends Controller
 
         if ($request->hasFile('featured_image')) {
           $image = $request->file('featured_image');
-          $filename = $request->component_name . '.' . $image->getClientOriginalExtension();
+          $filename = $request->component_name . time() . '.' . $image->getClientOriginalExtension();
           $location = public_path('upload/component/image/' . $filename);
           Image::make($image)->resize(800, 400)->save($location);
 
@@ -105,7 +105,7 @@ class ComponentsController extends Controller
 
         if ($request->hasFile('featured_image')) {
           $image = $request->file('featured_image');
-          $filename = $request->component_name . '.' . $image->getClientOriginalExtension();
+          $filename = $request->component_name . time(). '.' . $image->getClientOriginalExtension();
           $location = public_path('/upload/component/image/' . $filename);
           Image::make($image)->resize(800, 400)->save($location);
 

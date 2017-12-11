@@ -7,8 +7,8 @@
         
       </div>
 
+		{!! Form::model($com, ['route' => ['component.update', $com->id], 'method' => 'PUT', 'files' => 'true']) !!}
       <div class="modal-body">
-		{!! Form::model($com, ['route' => ['component.update', $com->id], 'method' => 'PUT']) !!}
 		
 		    <div class="col-md-4">
                 <div class="form-group{{ $errors->has('component_type') ? ' has-error' : '' }}">
@@ -37,34 +37,33 @@
                     <small class="text-danger">{{ $errors->first('component_qty') }}</small>
                 </div>
 
-              </div>
+        </div>
 
 
               <div class="col-md-8">
 
                   <div class="form-group{{ $errors->has('component_desc') ? ' has-error' : '' }}">
                       {!! Form::label('component_desc', 'Description') !!}
-                      {!! Form::textarea('component_desc', null, ['class' => 'field' ,'required' => 'required', 'style' => 'resize:none;']) !!}
+                      {!! Form::textarea('component_desc', null, ['class' => 'field' ,'required' => 'required', 'style' => 'resize:none;', 'col' => '33']) !!}
                       <small class="text-danger">{{ $errors->first('component_desc') }}</small>
                   </div>
+
                   <div class="form-group{{ $errors->has('featured_image') ? ' has-error' : '' }}">
                       {!! Form::label('featured_image', 'Image') !!}
-                      {!! Form::file('featured_image', ['class' => 'form-control']) !!}
-                      {{-- <p class="help-block"><i class="fa fa-question"></i></p> --}}
-                      <small class="text-danger">{{ $errors->first('featured_image') }}</small>
+                      {!! Form::file('featured_image') !!}
+                      
+                      
                   </div>
               </div>
-              <div class="col-md-12">
-                
-              </div>
+
 
               <div class="modal-footer">
                 {!! Form::submit('Update Component', ['class' => 'btn bg-olive btn-flat pull-right']) !!}
               </div>
 		
-		{!! Form::close() !!}
          
       </div>
+		{!! Form::close() !!}
 
      
     </div>

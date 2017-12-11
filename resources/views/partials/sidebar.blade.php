@@ -28,7 +28,7 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header"><b><center>N A V I G A T I O N</center></b></li>
-      <li><a href="/"><i class="fa fa-home"></i> <span>Home</span></a></li>
+      {{-- <li><a href="/"><i class="fa fa-home"></i> <span>Home</span></a></li> --}}
       <li><a href="{{ route('dash') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
       <li class="treeview">
         <a href="#">

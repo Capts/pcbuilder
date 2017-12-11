@@ -51,7 +51,7 @@
                   
                     <div class="form-group{{ $errors->has('featured_image') ? ' has-error' : '' }}" style="margin-left: 10px;">
                         {!! Form::label('featured_image', 'Image') !!}
-                        {!! Form::file('featured_image', ['class' => 'form-control']) !!}
+                        {!! Form::file('featured_image', ['class' => 'form-control', 'required' => 'required']) !!}
                         {{-- <p class="help-block"><i class="fa fa-question"></i></p> --}}
                         <small class="text-danger">{{ $errors->first('featured_image') }}</small>
                     </div>

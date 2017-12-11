@@ -20,23 +20,39 @@
 		<div class="container-fluid" style="margin-top:50px;">
 			<div class="row">
 				<div class="col-md-8">
-					<div class="content" style="margin-bottom: 520px;">
+					<div class="col-md-12 col-lg-8 col-lg-offset-2">
 						<p class="text-center" style="font-size: 40px;color:black;">
-							Generate your build
+							Start building!
 						</p>
 						<br>
-						<div class="col-md-12 text-center">
-							<button class="btn btn-flat bg-red btn-lg" style="width: 420px;">Gaming Rig</button><br><br>
-							<button class="btn btn-flat bg-red btn-lg" style="width: 420px;">Office PC</button><br>
-							<h3>or</h3>
-							<a href="{{ route('manual.index') }}" class="btn btn-flat btn-primary btn-lg" style="width: 420px;">Manually build my pc</a>
-						</div>	
-						<br>
-						<br>
+						{!! Form::open(['method' => 'GET', 'route' => 'find', 'class' => 'sidebar-form' ]) !!}
+						<div class="input-group">
+			              <input type="text" name="searchApp" class="form-control input-lg" placeholder="Find components" required>
+			              <span class="input-group-btn">
+			                <button type="submit"  id="search-btn" class="btn btn-flat btn-danger btn-lg"><i class="fa fa-search"></i>
+			                </button>
+			              </span>
+			            </div>
+			             {!! Form::close() !!}
+						
 						
 						
 					</div>
+					<div class="col-md-12">
+						<!-- new components -->
+						@if (url()->current() == $uri)
+							@include('partials.compatible')
+						@else
+
+							@include('partials.carousel')
+						@endif
+
+						<!-- recommendation -->
+					</div>
+
 				</div>
+
+
 				<div class="col-md-4 hidden-sm hidden-xs">
 					<p class="text-left text-default" style="font-size: 18px">
 						In order to avail some <i class="label label-danger"> discount</i> <br>Consider registering an account. <br>It's easy and FREE!
@@ -54,9 +70,12 @@
 						</ul>
 					
 				</div>
+				
 			</div>
+
 			
 		</div >
+
 
 	@else
 		@if (auth()->user()->roles->first()->name == 'admin')

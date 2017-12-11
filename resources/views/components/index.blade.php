@@ -38,28 +38,32 @@
 
 			
 			<div class="box box-danger">
-				<div class="box box-header">
-					
-				</div>
 				<div class="box-body">
 					@foreach ($allComponents as $component)
 						<div class="col-md-3">
-							<div class="box">
-								<div class="box-header">
-									<center><a href="{{ route('component.show', $component->id) }}">
-									{{ substr(strip_tags($component->component_name), 0, 35) }}
-									{{ strlen(strip_tags(ucfirst($component->component_name))) > 35 ? '...' : "" }}</a></center>
-								</div>
-								<div class="box-body">
-									@if(!empty($component->component_image))
-										<img src="{{asset('upload/component/image/' . $component->component_image)}}" class="img-thumbnail" style="height: 200px; width: auto;">
-									@else
-										<center><img src="/upload/no-image/not_found.jpeg" class="img-thumbnail" style="height: 200px; width: 200px;"></center>
-									@endif
-								</div>
+							<center>
+								<a href="{{ route('component.show', $component->id) }}">
+									{{ substr(strip_tags(ucfirst($component->component_name)), 0, 35) }}
+									{{ strlen(strip_tags(ucfirst($component->component_name))) > 35 ? '...' : "" }}
+								</a>
+							</center>
+							<div class="box-body">
+								@if(!empty($component->component_image))
+									<a href="{{ route('component.show', $component->id) }}">
+									<img src="{{asset('upload/component/image/' . $component->component_image)}}" class="img-thumbnail" style="height: 200px; width: auto;"></a>
+								@else
+									<center>
+										<a href="{{ route('component.show', $component->id) }}">
+										<img src="/upload/no-image/not_found.jpeg" class="img-thumbnail" style="height: 200px; width: auto;"></a>
+									</center>
+								@endif
+								
 							</div>
 						</div>
 					@endforeach
+					<div class="text-center">
+						{{ $allComponents->links() }}
+					</div>
 				</div>
 			</div>
 
