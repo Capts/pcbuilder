@@ -47,7 +47,7 @@ class WelcomeController extends Controller
           return view('welcome', compact('searchComponent','search', 'uri', 'recomRam', 'recomHDD', 'recomMOBO'));
        }else if(in_array('i7', $findRecom)) {
 
-          $recomRam = Component::where('component_name', 'Kingston dDr4')->get();
+          $recomRam = Component::where('component_name', 'Vengeance DDR4 1800mhz')->get();
           $recomHDD = Component::where('component_name', 'Western Digital Storage 2TB')->get();
           $recomMOBO = Component::where('component_name', 'ASUS maximus')->get();
           return view('welcome', compact('searchComponent','search', 'uri', 'recomRam', 'recomHDD', 'recomMOBO'));
